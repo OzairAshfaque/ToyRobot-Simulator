@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h1>COLUMN 1</h1>
+        </div>
+        <div class="col-md-8">
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <!--  <th style="border-style: solid; margin: 5px !important;" scope="col" *ngFor="let col of colArray; index as i">{{i+1}}</th>-->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let col of rowArray  ; index as i">
+                        <td *ngFor="let col of colArray; index as j"><span class="row-div "></span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+
+    </div>
+</div>
