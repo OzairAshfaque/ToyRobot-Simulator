@@ -60,26 +60,9 @@ export class RobotSimulatorComponent implements OnInit {
     this.commandToExecute = new CommandUpdateResponse();
     this.commandText = new Array();
     this.initialization();
-    // this.response.Position = this.position;
-    // this.response.RoboFaceDirection = this.faceDirection;
+
     this.commandUpdate.ToyBehaviourResponse = this.response;
 
-    // this.position.X = 5;
-    // this.position.Y = 4;
-    // this.tableBoard.Columns = 5;
-    // this.tableBoard.Rows = 5;
-
-    // this.faceDirection.Direction = 12;
-
-    // this.response.Position = this.position;
-    // this.response.RoboFaceDirection = this.faceDirection;
-    // this.response.TableDimensions = this.tableBoard;
-    // this.commandUpdate.Command = 'This us ';
-    // this.commandUpdate.ToyBehaviourResponse = this.response;
-
-    // this.commandToExecute.ComandToExecute = this.commandUpdate;
-    //this.response.TableDimensions = this.tableBoard;
-    //this.response.RoboFaceDirection = this.faceDirection;
 
     this.colArray = [];
     this.rowArray = [];
