@@ -64,10 +64,11 @@ export class RobotSimulatorComponent implements OnInit {
     this.commandUpdate.ToyBehaviourResponse = this.response;
 
 
-    this.colArray = [];
-    this.rowArray = [];
+    this.colArray = []; //Columns
+    this.rowArray = []; //Rows
   }
 
+  //Initialization of square table
   initialization() {
     this._initializationService.initialization().subscribe(
       (data) => {
@@ -76,13 +77,13 @@ export class RobotSimulatorComponent implements OnInit {
         this.tableDimension(this.tableBoard.Rows, this.tableBoard.Columns);
         this.response.TableDimensions = this.tableBoard;
 
-        // this.table = Array(this.tableDimensions.Columns).fill(0).map((x,i)=>i);
       },
       (error) => {
         console.log(error);
       }
     );
   }
+  // rowArray is useless as board is square but can be use for future logic
   tableDimension(rows: number, columns: number) {
     for (let i = 0; i < columns; i++) {
       this.colArray.push(i);
@@ -91,16 +92,12 @@ export class RobotSimulatorComponent implements OnInit {
     for (let i = 0; i < rows; i++) {
       this.rowArray.push(i);
     }
-
-    if (!(this.totalCoordinatesNumber == this.rowArray.length - 1)) {
-      console.log('Reset App');
-    }
   }
+  //CommandUpdate service call
   conmmadUpdate() {
     this.report = null;
     this.commandToExecute.ComandToExecute = this.commandUpdate;
     this.commandText.push(this.commandToExecute.ComandToExecute.Command);
-    console.log(this.commandToExecute);
 
     this._commandService.commandUpdate(this.commandToExecute).subscribe(
       (data) => {
@@ -112,12 +109,11 @@ export class RobotSimulatorComponent implements OnInit {
         this.response.Position = this.position;
         this.response.RoboFaceDirection= this.faceDirection;
 
-
-        this.calculateY_axis();
+        //Calculating y-axis
+        this.calculateY_axis(); 
 
         if(this.toyRobot.ToyRobot.Report != null){
           this.report = this.toyRobot.ToyRobot.Report;
-          console.log(this.report);
         }
       },
       (error) => {
