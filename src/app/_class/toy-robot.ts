@@ -1,10 +1,5 @@
-import { Coordinates } from "./coordinates";
-import { FaceDirection } from "./face-direction";
-import { Table } from "./table";
+import { ToyBehaviourResponse } from './toy-behaviour-response';
 
 export class ToyRobot {
-    TableDimensions : Table;
-    Position : Coordinates;
-    RoboFaceDirection : FaceDirection;
-    
+  ToyRobot: ToyBehaviourResponse;
 }

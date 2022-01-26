@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './nav/nav/nav.component';
 import { RobotSimulatorComponent } from './robot-simulator/robot-simulator/robot-simulator.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { RobotSimulatorComponent } from './robot-simulator/robot-simulator/robot
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

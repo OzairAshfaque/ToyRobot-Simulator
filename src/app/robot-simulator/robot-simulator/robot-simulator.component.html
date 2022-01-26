@@ -1,25 +1,70 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-            <h1>COLUMN 1</h1>
+            <form #commandForm="ngForm" (ngSubmit)="conmmadUpdate()" autocomplete="off">
+                <input type="text" placeholder="Command To Execute" class="form-control mt-2" name="command" [(ngModel)]="commandUpdate.Command" />
+            </form>
+            <div  class="command-box-container">
+                <div class="command-box ">
+                    <ng-container *ngFor="let commands of commandText" >
+                        <div style="display:inline-block; ">
+                    <span  class="poly-wrapper "style="display:inline;" ><img src="assets/images/polyline.png " class="rounded " /></span><p class="command-text">{{commands}}</p>
+                </div>
+                
+                </ng-container>
+                <ng-container *ngIf="report !=null" >
+                    <div style="display:inline-block; ">
+                <span  class="poly-wrapper "style="display:inline;" ><img src="assets/images/polyline-report.png " class="rounded " /></span><p class="command-text" style="color:aquamarine;font-size:15px">{{report}}</p>
+            </div>
+            
+            </ng-container>
+                </div>
+                    
+            </div>
         </div>
-        <div class="col-md-8">
+       
+        <div class="col-md-2"></div>
 
-            <table class="table table-striped">
+        <div class="col-md-6">
+            <table class="table table-striped box-wrapper">
                 <thead>
                     <tr>
-                        <!--  <th style="border-style: solid; margin: 5px !important;" scope="col" *ngFor="let col of colArray; index as i">{{i+1}}</th>-->
+                        <!--  <th style="border-style: solid; margin: 5px !important; " scope="col " *ngFor="let col of colArray; index as i ">{{i+1}}</th>-->
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let col of rowArray  ; index as i">
-                        <td *ngFor="let col of colArray; index as j"><span class="row-div "></span></td>
+                    <tr *ngFor="let col of rowArray; index as yAxis">
+                        <td *ngFor="let col of colArray; index as xAxis">
+                            <!--J==X-axis and i==Y--->
+                            <div class="robo-wrapper text-center" id="{{
+                  'sqaure-' + xAxis + 'x' + (totalCoordinatesNumber - yAxis)
+                }} ">
+                                {{ "sqaure-" + xAxis + "x" + (totalCoordinatesNumber - yAxis) }}
+                                <ng-container *ngIf="position != null">
+                                    <ng-container class="center" *ngIf="
+                      'sqaure-' +
+                        xAxis +
+                        'x' +
+                        (totalCoordinatesNumber - yAxis) ==
+                      'sqaure-' +
+                        position.X +
+                        'x' +
+                        (totalCoordinatesNumber - y_axis)
+                    ">
+                    <div class="fade-in-image">
+                    <ng-container class="fade-in-image " *ngIf="faceDirection.Direction == roboFaceDirections.NORTH"><img src="assets/images/mini-north.png " class="rounded mx-auto d-block" /></ng-container>
+                    <ng-container class="fade-in-image "*ngIf="faceDirection.Direction == roboFaceDirections.SOUTH"><img src="assets/images/mini-south.png " class="rounded mx-auto d-block" /></ng-container>
+                    <ng-container class="fade-in-image " *ngIf="faceDirection.Direction == roboFaceDirections.EAST"><img src="assets/images/mini-east.png " class="rounded mx-auto d-block" /></ng-container>
+                    <ng-container  *ngIf="faceDirection.Direction == roboFaceDirections.WEST"><img src="assets/images/mini-west.png " class="rounded mx-auto d-block" /></ng-container></div>
+    
+                                        
+                                    </ng-container>
+                                </ng-container>
+                            </div>
+                        </td>
                     </tr>
                 </tbody>
             </table>
         </div>
-
-
-
     </div>
 </div>
